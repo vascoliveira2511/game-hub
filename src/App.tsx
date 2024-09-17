@@ -1,19 +1,13 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Grid
       templateAreas={{
-        base: `
-        "nav"
-        "main"
-      `,
-        md: `
-        "nav nav"
-        "aside main"
-      `,
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`,
       }}
     >
       <GridItem area="nav">
@@ -28,5 +22,4 @@ function App() {
     </Grid>
   );
 }
-
 export default App;

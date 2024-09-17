@@ -4,14 +4,14 @@ interface Props {
   score: number;
 }
 
-function CriticScore({ score }: Props) {
-  let color = score > 75 ? "green" : score > 50 ? "yellow" : "red";
+const CriticScore = ({ score }: Props) => {
+  let color = score > 75 ? "green" : score > 60 ? "yellow" : "";
 
   return (
-    <Badge fontSize={"sm"} paddingX={2} borderRadius={10} colorScheme={color}>
+    <Badge colorScheme={color} fontSize="14px" paddingX={2} borderRadius="4px">
       {score}
     </Badge>
   );
-}
+};
 
 export default CriticScore;
