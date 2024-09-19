@@ -23,7 +23,7 @@ GameHub is a minimalist, responsive web application built with React, designed t
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/gamehub.git
+   gh repo clone vascoliveira2511/game-hub
    cd gamehub
 
 2. **Install dependencies**
