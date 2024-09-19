@@ -1,7 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
-  config: {},
+  config: {
+    initialColorMode: "dark",
+  },
   semanticTokens: {
     colors: {
       // accent semantic tokens
