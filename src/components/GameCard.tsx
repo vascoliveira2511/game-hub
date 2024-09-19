@@ -28,7 +28,13 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <HStack>
-          <Heading fontSize="2xl" fontWeight="bold" isTruncated>
+          <Heading
+            fontSize="2xl"
+            fontWeight="bold"
+            isTruncated
+            maxWidth="80%"
+            _hover={{ whiteSpace: "normal", overflow: "visible" }}
+          >
             {game.name}
           </Heading>
           <Spacer />
