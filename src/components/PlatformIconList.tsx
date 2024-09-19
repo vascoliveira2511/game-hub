@@ -1,17 +1,17 @@
+import { Box, HStack, Icon, Text, Tooltip } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+import { BsGlobe } from "react-icons/bs";
 import {
-  FaWindows,
-  FaPlaystation,
-  FaXbox,
+  FaAndroid,
   FaApple,
   FaLinux,
-  FaAndroid,
+  FaPlaystation,
+  FaWindows,
+  FaXbox,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
-import { HStack, Icon } from "@chakra-ui/react";
 import { Platform } from "../hooks/useGames";
-import { IconType } from "react-icons";
 
 interface Props {
   platforms: Platform[];
@@ -25,21 +25,54 @@ const PlatformIconList = ({ platforms }: Props) => {
     nintendo: SiNintendo,
     mac: FaApple,
     linux: FaLinux,
-    android: FaAndroid,
     ios: MdPhoneIphone,
+    android: FaAndroid,
     web: BsGlobe,
   };
 
+  const orderedPlatforms = [
+    "pc",
+    "playstation",
+    "xbox",
+    "nintendo",
+    "mac",
+    "linux",
+    "ios",
+    "android",
+    "web",
+  ];
+
+  // Filter and sort the platforms according to the desired order
+  const sortedPlatforms = orderedPlatforms
+    .filter((slug) => platforms.some((platform) => platform.slug === slug))
+    .map((slug) => platforms.find((platform) => platform.slug === slug)!);
+
+  const maxVisibleIcons = 4;
+  const visiblePlatforms = sortedPlatforms.slice(0, maxVisibleIcons);
+  const hiddenPlatforms = sortedPlatforms.slice(maxVisibleIcons);
+
   return (
-    <HStack marginY={1}>
-      {platforms.map((platform) => (
-        <Icon
-          key={platform.id}
-          as={iconMap[platform.slug]}
-          color={"gray.500"}
-        />
-      ))}
-    </HStack>
+    <Box maxWidth="100%">
+      <HStack spacing={2}>
+        {visiblePlatforms.map((platform) => (
+          <Icon
+            key={platform.id}
+            as={iconMap[platform.slug]}
+            color={"gray.500"}
+          />
+        ))}
+        {hiddenPlatforms.length > 0 && (
+          <Tooltip
+            label={hiddenPlatforms.map((platform) => platform.name).join(", ")}
+            aria-label="Hidden platforms"
+          >
+            <Text fontSize="sm" color="gray.500" cursor="pointer">
+              +{hiddenPlatforms.length} more
+            </Text>
+          </Tooltip>
+        )}
+      </HStack>
+    </Box>
   );
 };
 

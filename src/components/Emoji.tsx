@@ -1,22 +1,30 @@
-import { Image, ImageProps } from "@chakra-ui/react";
-import bullsEye from "../assets/Emojis/bulls-eye.webp";
-import meh from "../assets/Emojis/meh.webp";
-import thumbsUp from "../assets/Emojis/thumbs-up.webp";
+import { Icon } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+import { FaBullseye, FaMeh, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 
 interface Props {
   rating: number;
 }
 
 function Emoji({ rating }: Props) {
-  if (rating < 3) return null;
-
-  const emojiMap: { [key: number]: ImageProps } = {
-    3: { src: meh, alt: "meh", boxSize: "25px" },
-    4: { src: thumbsUp, alt: "recommended", boxSize: "25px" },
-    5: { src: bullsEye, alt: "exceptional", boxSize: "35px" },
+  const emojiMap: { [key: number]: IconType } = {
+    5: FaBullseye,
+    4: FaThumbsUp,
+    3: FaMeh,
+    1: FaThumbsDown,
   };
 
-  return <Image {...emojiMap[rating]} marginTop={1} />;
+  if (!rating || !emojiMap[rating]) {
+    return null;
+  }
+
+  return (
+    <>
+      {rating && (
+        <Icon as={emojiMap[rating]} color={"gray.500"} boxSize={5} radius={5} />
+      )}
+    </>
+  );
 }
 
 export default Emoji;
