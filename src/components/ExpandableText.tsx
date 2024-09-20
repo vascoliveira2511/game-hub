@@ -18,14 +18,14 @@ const ExpandableText = ({ text, maxLength = 300 }: Props) => {
 
   return (
     <Text>
-      {displayText}{" "}
+      {displayText}
       {text.length > maxLength && (
         <Button
           size="sm"
           onClick={() => setIsExpanded(!isExpanded)}
           variant="link"
           colorScheme="teal"
-          marginLeft={1}
+          marginLeft={2}
         >
           {isExpanded ? "Show Less" : "Read More"}
         </Button>
