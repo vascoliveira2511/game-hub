@@ -21,22 +21,14 @@ const GameCard = ({ game }: Props) => {
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <HStack justifyContent="space-between" marginBottom={3} wrap={"wrap"}>
+        <HStack justifyContent="space-between" marginBottom={3}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </HStack>
         <HStack>
-          <Heading
-            fontSize="2xl"
-            fontWeight="bold"
-            isTruncated
-            maxWidth="80%"
-            _hover={{ whiteSpace: "normal", overflow: "visible" }}
-          >
-            {game.name}
-          </Heading>
+          <Heading fontSize="2xl">{game.name}</Heading>
           <Spacer />
           <Emoji rating={game.rating_top} />
         </HStack>
