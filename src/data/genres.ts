@@ -11,13 +11,13 @@ export default [
         id: 3498,
         slug: "grand-theft-auto-v",
         name: "Grand Theft Auto V",
-        added: 21164,
+        added: 21165,
       },
       {
         id: 3328,
         slug: "the-witcher-3-wild-hunt",
         name: "The Witcher 3: Wild Hunt",
-        added: 20660,
+        added: 20661,
       },
       {
         id: 5286,
@@ -29,7 +29,7 @@ export default [
         id: 13536,
         slug: "portal",
         name: "Portal",
-        added: 16639,
+        added: 16640,
       },
       {
         id: 12020,
@@ -57,7 +57,7 @@ export default [
         id: 1030,
         slug: "limbo",
         name: "Limbo",
-        added: 13507,
+        added: 13508,
       },
       {
         id: 422,
@@ -75,7 +75,7 @@ export default [
         id: 9767,
         slug: "hollow-knight",
         name: "Hollow Knight",
-        added: 11002,
+        added: 11003,
       },
       {
         id: 3612,
@@ -109,7 +109,7 @@ export default [
         id: 23027,
         slug: "the-walking-dead",
         name: "The Walking Dead: Season 1",
-        added: 11232,
+        added: 11233,
       },
       {
         id: 41,
@@ -127,7 +127,7 @@ export default [
         id: 19487,
         slug: "alan-wake",
         name: "Alan Wake",
-        added: 10006,
+        added: 10007,
       },
       {
         id: 4386,
@@ -149,7 +149,7 @@ export default [
         id: 3328,
         slug: "the-witcher-3-wild-hunt",
         name: "The Witcher 3: Wild Hunt",
-        added: 20660,
+        added: 20661,
       },
       {
         id: 5679,
@@ -167,7 +167,7 @@ export default [
         id: 3070,
         slug: "fallout-4",
         name: "Fallout 4",
-        added: 13524,
+        added: 13525,
       },
       {
         id: 41494,
@@ -233,15 +233,15 @@ export default [
     id: 2,
     name: "Shooter",
     slug: "shooter",
-    games_count: 59508,
+    games_count: 59512,
     image_background:
-      "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
+      "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
     games: [
       {
         id: 4200,
         slug: "portal-2",
         name: "Portal 2",
-        added: 19549,
+        added: 19550,
       },
       {
         id: 4291,
@@ -325,9 +325,9 @@ export default [
     id: 14,
     name: "Simulation",
     slug: "simulation",
-    games_count: 70939,
+    games_count: 70940,
     image_background:
-      "https://media.rawg.io/media/games/a91/a911f0a91991469e398fa70091507a5b.jpg",
+      "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg",
     games: [
       {
         id: 10035,
@@ -379,19 +379,19 @@ export default [
         id: 4200,
         slug: "portal-2",
         name: "Portal 2",
-        added: 19549,
+        added: 19550,
       },
       {
         id: 13536,
         slug: "portal",
         name: "Portal",
-        added: 16639,
+        added: 16640,
       },
       {
         id: 1030,
         slug: "limbo",
         name: "Limbo",
-        added: 13507,
+        added: 13508,
       },
       {
         id: 19709,
@@ -463,15 +463,15 @@ export default [
     id: 83,
     name: "Platformer",
     slug: "platformer",
-    games_count: 100800,
+    games_count: 100801,
     image_background:
-      "https://media.rawg.io/media/games/fd7/fd794a9f0ffe816038d981b3acc3eec9.jpg",
+      "https://media.rawg.io/media/games/fc8/fc838d98c9b944e6a15176eabf40bee8.jpg",
     games: [
       {
         id: 1030,
         slug: "limbo",
         name: "Limbo",
-        added: 13507,
+        added: 13508,
       },
       {
         id: 422,
@@ -483,7 +483,7 @@ export default [
         id: 9767,
         slug: "hollow-knight",
         name: "Hollow Knight",
-        added: 11002,
+        added: 11003,
       },
       {
         id: 41,
@@ -587,7 +587,7 @@ export default [
         id: 362,
         slug: "for-honor",
         name: "For Honor",
-        added: 9355,
+        added: 9356,
       },
       {
         id: 326292,
@@ -601,9 +601,9 @@ export default [
     id: 15,
     name: "Sports",
     slug: "sports",
-    games_count: 21704,
+    games_count: 21705,
     image_background:
-      "https://media.rawg.io/media/games/84f/84f3b9c804cbc2b39b4023531427e7e9.jpg",
+      "https://media.rawg.io/media/games/0c1/0c1c9965ba59166ab986a663ab2252dc.jpg",
     games: [
       {
         id: 3272,
@@ -719,7 +719,7 @@ export default [
         id: 1259,
         slug: "machinarium",
         name: "Machinarium",
-        added: 4526,
+        added: 4527,
       },
       {
         id: 1140,
