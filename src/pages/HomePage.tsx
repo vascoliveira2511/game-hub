@@ -1,4 +1,5 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+// HomePage.tsx
+import { Box, Grid, GridItem, Show } from "@chakra-ui/react";
 import GameGrid from "../components/GameGrid";
 import GameHeading from "../components/GameHeading";
 import GenreList from "../components/GenreList";
@@ -16,6 +17,7 @@ function HomePage() {
         base: "1fr",
         lg: "200px 1fr",
       }}
+      height="100vh"
     >
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
@@ -25,12 +27,12 @@ function HomePage() {
       <GridItem area="main">
         <Box paddingLeft={2}>
           <GameHeading />
-          <Flex marginBottom={5}>
+          <Box marginBottom={5} display="flex">
             <Box marginRight={5}>
               <PlatformSelector />
             </Box>
             <SortSelector />
-          </Flex>
+          </Box>
         </Box>
         <GameGrid />
       </GridItem>

@@ -1,4 +1,5 @@
-import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+// GameGrid.tsx
+import { Grid, Spinner, Text } from "@chakra-ui/react"; // Replace SimpleGrid with Grid
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useGames from "../hooks/useGames";
@@ -24,9 +25,14 @@ const GameGrid = () => {
       next={() => fetchNextPage()}
       loader={<Spinner marginY={5} />}
     >
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={6}
+      <Grid
+        templateColumns={{
+          sm: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+          xl: "repeat(4, 1fr)",
+        }}
+        gap={6}
         padding="10px"
       >
         {isLoading &&
@@ -44,8 +50,9 @@ const GameGrid = () => {
             ))}
           </React.Fragment>
         ))}
-      </SimpleGrid>
+      </Grid>
     </InfiniteScroll>
   );
 };
+
 export default GameGrid;

@@ -1,4 +1,4 @@
-import { Box, HStack, Icon, Text, Tooltip } from "@chakra-ui/react";
+import { HStack, Icon, Text, Tooltip } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { BsGlobe, BsNintendoSwitch } from "react-icons/bs";
 import {
@@ -16,62 +16,76 @@ interface Props {
   platforms: Platform[];
 }
 
+const iconMap: { [key: string]: { icon: IconType; name: string } } = {
+  pc: { icon: FaWindows, name: "PC" },
+  playstation: { icon: FaPlaystation, name: "PlayStation" },
+  xbox: { icon: FaXbox, name: "Xbox" },
+  nintendo: { icon: BsNintendoSwitch, name: "Nintendo" },
+  mac: { icon: FaApple, name: "Mac" },
+  linux: { icon: FaLinux, name: "Linux" },
+  ios: { icon: MdPhoneIphone, name: "iOS" },
+  android: { icon: FaAndroid, name: "Android" },
+  web: { icon: BsGlobe, name: "Web" },
+};
+
+const orderedPlatformSlugs = [
+  "pc",
+  "playstation",
+  "xbox",
+  "nintendo",
+  "mac",
+  "linux",
+  "ios",
+  "android",
+  "web",
+];
+
 const PlatformIconList = ({ platforms }: Props) => {
-  const iconMap: { [key: string]: IconType } = {
-    pc: FaWindows,
-    playstation: FaPlaystation,
-    xbox: FaXbox,
-    nintendo: BsNintendoSwitch,
-    mac: FaApple,
-    linux: FaLinux,
-    ios: MdPhoneIphone,
-    android: FaAndroid,
-    web: BsGlobe,
-  };
-
-  const orderedPlatforms = [
-    "pc",
-    "playstation",
-    "xbox",
-    "nintendo",
-    "mac",
-    "linux",
-    "ios",
-    "android",
-    "web",
-  ];
-
-  // Filter and sort the platforms according to the desired order
-  const sortedPlatforms = orderedPlatforms
-    .filter((slug) => platforms.some((platform) => platform.slug === slug))
-    .map((slug) => platforms.find((platform) => platform.slug === slug)!);
-
   const maxVisibleIcons = 4;
+
+  // Map the platforms to include icon and name from iconMap
+  const platformData = platforms
+    .filter((platform) => iconMap[platform.slug])
+    .map((platform) => ({
+      id: platform.id,
+      slug: platform.slug,
+      name: iconMap[platform.slug].name,
+      icon: iconMap[platform.slug].icon,
+    }));
+
+  // Sort the platforms according to the desired order
+  const sortedPlatforms = orderedPlatformSlugs
+    .map((slug) => platformData.find((platform) => platform.slug === slug))
+    .filter((platform) => platform !== undefined) as {
+    id: number;
+    slug: string;
+    name: string;
+    icon: IconType;
+  }[];
+
   const visiblePlatforms = sortedPlatforms.slice(0, maxVisibleIcons);
   const hiddenPlatforms = sortedPlatforms.slice(maxVisibleIcons);
 
   return (
-    <Box maxWidth="100%">
-      <HStack spacing={2}>
-        {visiblePlatforms.map((platform) => (
-          <Icon
-            key={platform.id}
-            as={iconMap[platform.slug]}
-            color={"gray.500"}
-          />
-        ))}
-        {hiddenPlatforms.length > 0 && (
-          <Tooltip
-            label={hiddenPlatforms.map((platform) => platform.name).join(", ")}
-            aria-label="Hidden platforms"
-          >
-            <Text fontSize="sm" color="gray.500" cursor="pointer">
-              +{hiddenPlatforms.length} more
-            </Text>
-          </Tooltip>
-        )}
-      </HStack>
-    </Box>
+    <HStack spacing={2}>
+      {visiblePlatforms.map((platform) => (
+        <Tooltip key={platform.id} label={platform.name}>
+          <span>
+            <Icon as={platform.icon} color="gray.500" boxSize={5} />
+          </span>
+        </Tooltip>
+      ))}
+      {hiddenPlatforms.length > 0 && (
+        <Tooltip
+          label={hiddenPlatforms.map((p) => p.name).join(", ")}
+          aria-label="Hidden platforms"
+        >
+          <Text fontSize="sm" color="gray.500" cursor="pointer">
+            +{hiddenPlatforms.length}
+          </Text>
+        </Tooltip>
+      )}
+    </HStack>
   );
 };
 

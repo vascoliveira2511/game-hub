@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
@@ -18,7 +19,7 @@ function GenreList() {
   const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 
   if (error) {
-    return null;
+    return <Text color="red.500">Failed to load genres.</Text>;
   }
 
   if (isLoading) {
