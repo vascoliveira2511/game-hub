@@ -16,7 +16,9 @@ const GameCard = ({ game }: Props) => {
       <Card
         as="article"
         height="100%"
-        _hover={{ boxShadow: "lg" }}
+        borderRadius="md"
+        transition="all 0.2s"
+        _hover={{ transform: "translateY(-4px)", shadow: "md", zIndex: 1 }}
         cursor="pointer"
       >
         <Image src={getCroppedImageUrl(game.background_image)} />
