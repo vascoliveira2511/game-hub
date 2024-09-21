@@ -1,7 +1,8 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Wrap, WrapItem, Badge } from "@chakra-ui/react";
 import Game from "../entities/Game";
 import CriticScore from "./CriticScore";
 import DefinitionItem from "./DefinitionItem";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
   game: Game;
@@ -9,26 +10,41 @@ interface Props {
 
 function GameAttributes({ game }: Props) {
   return (
-    <SimpleGrid columns={[1, 2]} gap={5} as="dl">
+    <Box as="dl">
       <DefinitionItem term="Platforms">
-        {game.parent_platforms.map((p) => (
-          <Text key={p.platform.id}>{p.platform.name}</Text>
-        ))}
+        <PlatformIconList
+          platforms={game.parent_platforms.map((p) => p.platform)}
+        />
       </DefinitionItem>
+
       <DefinitionItem term="Metascore">
         <CriticScore score={game.metacritic} />
       </DefinitionItem>
+
       <DefinitionItem term="Genres">
-        {game.genres.map((genre) => (
-          <Text key={genre.id}>{genre.name}</Text>
-        ))}
+        <Wrap>
+          {game.genres.map((genre) => (
+            <WrapItem key={genre.id}>
+              <Badge colorScheme="green">{genre.name}</Badge>
+            </WrapItem>
+          ))}
+        </Wrap>
       </DefinitionItem>
+
       <DefinitionItem term="Publishers">
-        {game.publishers?.map((publisher) => (
-          <Text key={publisher.id}>{publisher.name}</Text>
-        ))}
+        {game.publishers && game.publishers.length > 0 ? (
+          <Wrap>
+            {game.publishers.map((publisher) => (
+              <WrapItem key={publisher.id}>
+                <Badge colorScheme="purple">{publisher.name}</Badge>
+              </WrapItem>
+            ))}
+          </Wrap>
+        ) : (
+          "N/A"
+        )}
       </DefinitionItem>
-    </SimpleGrid>
+    </Box>
   );
 }
 

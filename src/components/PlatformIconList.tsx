@@ -14,6 +14,7 @@ import Platform from "../entities/Platform";
 
 interface Props {
   platforms: Platform[];
+  maxVisibleIcons?: number;
 }
 
 const iconMap: { [key: string]: { icon: IconType; name: string } } = {
@@ -40,9 +41,7 @@ const orderedPlatformSlugs = [
   "web",
 ];
 
-const PlatformIconList = ({ platforms }: Props) => {
-  const maxVisibleIcons = 4;
-
+const PlatformIconList = ({ platforms, maxVisibleIcons }: Props) => {
   // Map the platforms to include icon and name from iconMap
   const platformData = platforms
     .filter((platform) => iconMap[platform.slug])
@@ -63,8 +62,13 @@ const PlatformIconList = ({ platforms }: Props) => {
     icon: IconType;
   }[];
 
-  const visiblePlatforms = sortedPlatforms.slice(0, maxVisibleIcons);
-  const hiddenPlatforms = sortedPlatforms.slice(maxVisibleIcons);
+  // Adjusted logic to handle undefined maxVisibleIcons
+  const visiblePlatforms = maxVisibleIcons
+    ? sortedPlatforms.slice(0, maxVisibleIcons)
+    : sortedPlatforms;
+  const hiddenPlatforms = maxVisibleIcons
+    ? sortedPlatforms.slice(maxVisibleIcons)
+    : [];
 
   return (
     <HStack spacing={2}>
