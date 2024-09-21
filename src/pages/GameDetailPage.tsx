@@ -45,7 +45,7 @@ function GameDetailPage() {
     );
   }
 
-  const { name, description_raw, id, background_image } = game;
+  const { name, description_raw, id } = game;
 
   return (
     <>
