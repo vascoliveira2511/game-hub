@@ -12,8 +12,8 @@ function SortSelector() {
     { value: "-rating", label: "Average Rating" },
   ];
 
-  const sortOrder = useGameQueryStore((state) => state.gameQuery.sortOrder);
   const setSortOrder = useGameQueryStore((state) => state.setSortOrder);
+  const sortOrder = useGameQueryStore((state) => state.gameQuery.sortOrder);
 
   const currentSortOrder = sortOrders().find(
     (order) => order.value === sortOrder
